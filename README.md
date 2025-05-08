@@ -6,7 +6,7 @@
 #include <windows.h>
 
 int main(){
-    MessageBox(NULL, "Test", "Msg test", MB_OK | MB_ICONINFORMATION);
+    MessageBox(NULL, "Msg test", "Test", MB_OK | MB_ICONINFORMATION);
     return 0;
 }
 ```
@@ -23,7 +23,7 @@ x86_64-w64-mingw32-gcc -Os -flto -fdata-sections -ffunction-sections -Wl,--gc-se
 #include <windows.h>
 
 extern __declspec(dllexport) void ShowMessage(){
-    MessageBox(NULL, "Test", "Msg test", MB_OK | MB_ICONINFORMATION);
+    MessageBox(NULL, "Msg test", "Test", MB_OK | MB_ICONINFORMATION);
 }
 
 BOOL APIENTRY DllMain(HMODULE hModule, DWORD ul_reason_for_call, LPVOID lpReserved){
