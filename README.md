@@ -5,8 +5,7 @@
 ```c
 #include <windows.h>
 
-int main()
-{
+int main(){
     MessageBox(NULL, "Test", "Msg test", MB_OK | MB_ICONINFORMATION);
     return 0;
 }
@@ -27,7 +26,7 @@ extern __declspec(dllexport) void ShowMessage(){
     MessageBox(NULL, "Test", "Msg test", MB_OK | MB_ICONINFORMATION);
 }
 
-BOOL APIENTRY DllMain(HMODULE hModule, DWORD ul_reason_for_call, LPVOID lpReserved) {
+BOOL APIENTRY DllMain(HMODULE hModule, DWORD ul_reason_for_call, LPVOID lpReserved){
     switch (ul_reason_for_call) {
         case DLL_PROCESS_ATTACH:
         case DLL_THREAD_ATTACH:
@@ -42,7 +41,7 @@ BOOL APIENTRY DllMain(HMODULE hModule, DWORD ul_reason_for_call, LPVOID lpReserv
 ### Compile
 
 ```bash
-x86_64-w64-mingw32-gcc <args> -o test.dll main-dll.c
+x86_64-w64-mingw32-gcc -shared -O2 -s -ffunction-sections -fdata-sections -fmerge-all-constants -static-libgcc -o test.dll main-dll.c
 ```
 
 # Dependencies
